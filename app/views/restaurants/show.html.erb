@@ -1,0 +1,24 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <br>
+  <p>address: <%= @restaurant.address %></p>
+  <p>phone: <%= @restaurant.phone_number %></p>
+  <p>category: <%= @restaurant.category.upcase %></p>
+  <br>
+
+  <p><%= link_to 'Reviews', restaurant_reviews_path(@restaurant) %></p>
+  <br>
+  <!-- <p><%= link_to 'Add review', new_restaurant_review_path(@restaurant) %></p> -->
+  <p><%= link_to 'Go back', restaurants_path %></p>
+</div>
+
+<div class="container">
+
+  <%= simple_form_for [@restaurant, @review] do |f| %>
+    <%= f.label "Review" %>
+    <%= f.text_area :content, rows: 4, class:"form-control" %>
+    <%= f.input :rating, collection: (1..5), prompt: "Select rating", class:"form-control" %>
+    <%= f.submit "Add review!", class:"btn btn-success" %>
+  <% end %>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+
+  <% @reviews.each do |review|  %>
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        RATING: <%= review.rating %>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        REVIEW: <%= review.content %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+
+<%= link_to "Go back", restaurant_path(@restaurant) %>
+</div>
